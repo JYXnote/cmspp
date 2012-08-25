@@ -1,0 +1,183 @@
+*{margin: 0px;padding: 0px;}
+body
+{
+    background-color: #000;
+    color: #FFF;
+}
+#header
+{
+    width: 100%;
+    height: 110px;
+}
+#navigation
+{
+    width: 600px;
+    height: 120px;
+    padding-top: 45px;
+    padding-left: 87px;
+    float: left;
+}
+#navigation ul li
+{
+    font-size: 12px;
+    background-repeat: no-repeat;
+    font-family: Microsoft YaHei,Apple LiGothic Medium;
+    float: left;
+    list-style: none;
+    height: 90px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 29px;
+    background-image: url('../images/navigation_line.png');
+    background-repeat: no-repeat;
+}
+#navigation ul li a
+{
+	font-size: 12px;
+    font-family: Microsoft YaHei,Apple LiGothic Medium;
+	color:#FFF;
+	text-decoration:none;
+}
+#navigation ul li a:hover
+{
+	text-decoration:underline;
+}
+#login
+{
+    font-family: Algerian;
+    font-style: italic;
+    float: right;
+    font-size: 18px;
+    padding-right: 84px;
+    padding-top: 45px;
+    width: 100px;
+}
+#page
+{
+    width: 100%;
+    min-height: 500px;
+    overflow: visible;
+}
+#introduction
+{
+    width: 475px;
+    height: 375px;
+    padding-top: 127px;
+    margin-left: 87px;
+}
+#introduction h1
+{
+    font-family: Agency FB;
+    font-weight: lighter;
+    font-size: 47px;
+}
+#introduction h1 span
+{
+    color:#FF5A00;
+}
+#introduction p
+{
+    font-family: Microsoft YaHei,Apple LiGothic Medium;
+    font-size: 15px;
+    margin-top: 12px;
+    line-height: 25px;
+}
+#introduction dl dt a
+{
+	font-family: Microsoft YaHei,Apple LiGothic Medium;
+	text-decoration:none;
+	color:#FFF;
+}
+#introduction dl dd div
+{
+	width:400px;
+	overflow:visible;
+	padding:5px;
+	border: #444 solid 1px;
+}
+#introduction dl dd div p
+{
+	text-indent:30px;
+}
+#introduction dl dd div a
+{
+	height:30px;
+	width:380px;
+	margin:15px 5px 0 300px;
+	color:#0092D9;
+}
+#manualIndex
+{
+    width: 475px;
+    padding-top: 57px;
+    margin-left: 107px;
+}
+#manualIndex h1
+{
+    font-family: Agency FB;
+    font-weight: lighter;
+    font-size: 47px;
+}
+#manualIndex h1 span
+{
+    color:#FF5A00;
+}
+#manualIndex dl
+{
+	font-family: Agency FB;
+    font-weight: lighter;
+    font-size: 24px;
+}
+#manualIndex dl dd li
+{
+	list-style:none;
+	text-indent:30px;
+	font-size: 18px;
+}
+#manualIndex dl dd li a
+{
+	color:#0092D9;
+}
+#manualText
+{
+	margin:50px 100px 50px 100px;
+}
+#manualText a
+{
+	color:#0092D9;
+	font-family: Microsoft YaHei,Apple LiGothic Medium;
+	font-style: italic;
+}
+#manualText h3,#manualText h4
+{
+	margin-top:35px;
+	margin-bottom:10px;
+}
+#manualText p
+{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+#footer
+{
+    width: 100%;
+    height: 30px;
+    font-family: Microsoft YaHei,Apple LiGothic Medium;
+    padding-top: 10px;
+    font-size: 13px;
+
+}
+#copyright
+{
+    padding-left: 83px;
+    float: left;
+    width: 400px;
+    font-style: italic;
+}
+#language
+{
+    padding-right: 73px;
+    padding-top: 2px;
+    float: right;
+    width: 100px;
+}
