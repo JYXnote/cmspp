@@ -10,7 +10,7 @@ class String
     {
         switch(strtoupper(str_replace('_', '', trim($charset))))
         {
-            case 'UTF8':return self::strlen_utf8($string,$getWidth);
+            case 'UTF8':case 'UTF-8':return self::strlen_utf8($string,$getWidth);
             case 'BIG5':return self::strlen_big5($string,$getWidth);
             case 'GBK':case 'GB2312':case 'GB18030':return self::strlen_gb($string,$getWidth); 
             case 'UNICODE':case 'HZ':case'CJK':return strlen($string)/2*$getWidth?1:2;
@@ -90,7 +90,7 @@ class String
     {
         switch(strtoupper(str_replace('_', '', trim($charset))))
         {
-        	case 'UTF8':return self::substr_utf8($string, $start, $length);
+        	case 'UTF8':case 'UTF-8':return self::substr_utf8($string, $start, $length);
         	case 'BIG5':return self::substr_big5($string, $start, $length);
         	case 'GBK':case 'GB2312':case 'GB18030':return self::substr_gb($string, $start, $length);
         	case 'UNICODE':case 'HZ':case'CJK':return substr($string, $start*2,$length==null?null:$length*2);
@@ -102,7 +102,7 @@ class String
         $strLength = self::strlen_utf8($string, false);
         if($strLength<=$start)return "";
         $end = ($length==null || $length>$strLength-$start)?$strLength:$start+$length;
-        $length = 0;
+        $length = -1;
         $intArray = str_split($string);
         $intArrayLength = count($intArray);
         
@@ -134,7 +134,7 @@ class String
         if($strLength<=$start)return "";
         $end = ($length==null || $length>$strLength-$start)?$strLength:$start+$length;
         
-        $length = 0;
+        $length = -1;
         $intArray = str_split($string);
         $intArrayLength = count($intArray);
         
@@ -163,7 +163,7 @@ class String
         if($strLength<=$start)return "";
         $end = ($length==null || $length>$strLength-$start)?$strLength:$start+$length;
         
-        $length = 0;
+        $length = -1;
         $intArray = str_split($string);
         $intArrayLength = count($intArray);
         

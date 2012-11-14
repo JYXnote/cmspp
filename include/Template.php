@@ -20,7 +20,7 @@ class Template
         $location = PLUGINPATH."{$this->_class}/template/".$location;
 		if($this->refresh($location))
 		{
-			foreach($params as $key=>$value)$$key=$value;
+			extract($params);
 		    if($mainTemplate)
             {
                 header('Content-type: text/html; charset='.CHARSET);
@@ -56,15 +56,16 @@ class Template
 
     private function _tpl ($content)
     {
+    	
         $string = preg_replace_callback('/<!--{template (.*?)}-->/', array(&$this,'_TEMPLATE'), $content);
         $string = preg_replace_callback('/<!--{#(.*?)#}-->/', array(&$this,'_T'),  $string);
         $string = preg_replace_callback('/<!--{@(.*?)@}-->/', array(&$this,'_AT'),  $string);
         $string = preg_replace_callback('/<!--{~\/(.*?)}-->/', array(&$this,'_HOME'),  $string);
         $string = preg_replace_callback('/<!--{\[(.*?)\]}-->/',array(&$this, '_SUBMOUNTPOINT'),$string);
         $string = preg_replace_callback('/<!--{for\((.*?)\)}-->/',array(&$this, '_FOR'), $string);
-        $string = preg_replace_callback('/<!--{foreach\((.*?)\)}-->/',array(&$this, 'self::_FOREACH'), $string);
+        $string = preg_replace_callback('/<!--{foreach\((.*?)\)}-->/',array(&$this, 'Template::_FOREACH'), $string);
         $string = preg_replace_callback('/<!--{if\((.*?)\)}-->/',array(&$this, '_IF'), $string);
-        $string = preg_replace_callback('/<!--{\/([a-z|A-z]*?)}-->/', array(&$this, 'self::_END'), $string);
+        $string = preg_replace_callback('/<!--{\/([a-z|A-z]*?)}-->/', array(&$this, 'Template::_END'), $string);
         $string = preg_replace_callback('/<!--{\$(.*?)}-->/',array(&$this, '_VAR'), $string);
         $string = preg_replace_callback('/<!--{eval (.*?)}-->/',array(&$this, '_EVAL'), $string);
         return $string;
@@ -106,8 +107,8 @@ class Template
             $evalArray= Array();
             foreach($pluginArray as $plugin)
             {
-                $subMontPoint = Cmspp::get_plugin_property($plugin,'subMontPoint');
-                array_push($evalArray, $plugin.'::'.$subMontPoint[$string].'();');
+                $subMountPoint = Cmspp::get_plugin_property($plugin,'subMountPoint');
+                array_push($evalArray, $plugin.'::'.$subMountPoint[$string].'();');
             }
             $evalString = '<?php '.implode($evalArray).' ?>';
         }

@@ -115,7 +115,7 @@ class CommandLine
 	        session_regenerate_id();
 	        $sercetCode = Array(
 	        		$clientIp,
-	        		$_SERVER[HTTP_USER_AGENT],
+	        		$_SERVER['HTTP_USER_AGENT'],
 	        		session_id()
 	        );
 	        $_SESSION['adminLoginFlag'] =  md5(implode('&', $sercetCode));
@@ -151,7 +151,7 @@ class CommandLine
 	    {
 	        $sercetCode = Array(
 	               WebRequest::getClientIP(),
-	               $_SERVER[HTTP_USER_AGENT],
+	               $_SERVER['HTTP_USER_AGENT'],
 	               session_id()
 	        );
 	        $sercetCode = md5(implode('&', $sercetCode));

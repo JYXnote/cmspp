@@ -129,8 +129,8 @@ class Setting
         {
             foreach (self::$plugins as $plugin)
             {
-                $subMontPoint = Cmspp::get_plugin_property($plugin,'subMontPoint');
-                foreach ($subMontPoint as $pluginSubMountPoint => $enterFunction)
+                $subMountPoint = Cmspp::get_plugin_property($plugin,'subMountPoint');
+                foreach ($subMountPoint as $pluginSubMountPoint => $enterFunction)
                 {
                     if (isset(self::$subMountPoint[$pluginSubMountPoint]))
                     {

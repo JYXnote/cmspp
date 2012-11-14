@@ -13,14 +13,17 @@ class WebRequest
     
     public static function init()
     {
-        @session_start();
+    	if(AUTOSESSIONDOMAIN){
+    		ini_set('session.cookie_domain', (strpos($_SERVER['HTTP_HOST'],'.') !== false) ? $_SERVER['HTTP_HOST'] : '');
+    	}
+    	@session_start();
         self::$Session = $_SESSION;
         self::$Cookie = $_COOKIE;
-        $urlPath = '/' . $_GET['u'];
+        @$urlPath = '/' . $_GET['u'];
         if(strripos($urlPath, '.html')==strlen($urlPath)-5)
         {
             $paramString = str_replace('.html', '',substr(strrchr($urlPath, '/'),1));
-            self::$Param = array_filter($_POST + explode('_', $paramString));
+            self::$Param = $_POST + explode('_', $paramString);
             self::$Path = substr($urlPath, 0,strripos($urlPath, '/'));
             if(empty(self::$Path))
                 self::$Path = '/';
@@ -36,9 +39,9 @@ class WebRequest
 		}
     }
     
-    public static function header()
+    public static function header($str)
     {
-        ;
+        header($str);
     }
     
     public static function getClientIP()
@@ -63,6 +66,11 @@ class WebRequest
     	else
     		header($_SERVER['SERVER_PROTOCOL'].' '.$status);
     	exit();
+    }
+    
+    public static function response_json($data=NULL,$status=200)
+    {
+    	exit(json_encode(array('status'=>$status,'data'=>$data)));
     }
 
 }

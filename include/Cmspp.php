@@ -83,11 +83,15 @@ class Cmspp
             Event::losePlugin($className, 'Unknown');
         }
     }
-	
     public static function get_plugin_property($class,$property)
     {
-        if(!property_exists($class,$property))return NULL;
+        //if(!property_exists($class,$property))return NULL;
         $vars = get_class_vars($class);
-        return $vars[$property];
+        return isset($vars[$property])?$vars[$property]:NULL;
+    }
+    
+    public static function run_plugin_function($class,$function,$param_arr=NULL){
+    	//call_user_func(array($class,$function));
+    	call_user_func_array(array($class,$function), $param_arr);
     }
 }

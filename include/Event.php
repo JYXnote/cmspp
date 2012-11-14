@@ -20,7 +20,7 @@ class Event
     
     public static function loseLanguageFile($class,$language)
     {
-        self::writeLog('StructError',"Language file {$language}.xml in {$class} is lost.");
+        self::writeLog('StructError',"Language file {$language}.json in {$class} is lost.");
         exit();
     }
     
@@ -28,6 +28,12 @@ class Event
     {
         self::writeLog('StructError',"Plugin {$pluginName}({$version}) is lost.");
         exit();
+    }
+    
+    public static function pluginError($pluginName,$error)
+    {
+    	self::writeLog('PluginError',"Plugin {$pluginName} : {$error}.");
+    	exit();
     }
     
     public static function adminProcess($explain)

@@ -7,7 +7,7 @@
 abstract class PluginBase
 {
     public static $mountPoint = Array();
-    public static $subMontPoint = Array();
+    public static $subMountPoint = Array();
     public static $refrencePlugin = Array();
     protected static $_template = NULL;
     
